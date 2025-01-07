@@ -1,0 +1,42 @@
+﻿@model Đồ_án_web_quản_lí_phòng_trọ.Models.PhongTro
+
+@{
+    ViewBag.Title = "Details1";
+    Layout = "~/Views/Shared/KhachHangLayout.cshtml";
+}
+<link href="~/Content/CSS/button-back.css" rel="stylesheet" />
+<link href="~/Content/CSS/admin.css" rel="stylesheet" />
+<link href="~/Content/CSS/TableDetails.css" rel="stylesheet" />
+<h2 id="header-admin-layout">Chi tiết phòng trọ</h2>
+<div>
+    <h4>PhongTro</h4>
+    <hr />
+    <table>
+        <tr>
+            <th> MaPhong </th>
+            <th> @Html.DisplayFor(model => model.MaPhong) </th>
+        </tr>
+        <tr>
+            <th> GiaThue </th>
+            <th> @Html.DisplayFor(model => model.GiaThue) </th>
+        </tr>
+        <tr>
+            <th> DienTich </th>
+            <th> @Html.DisplayFor(model => model.DienTich) </th>
+        </tr>
+        <tr>
+            <th> VatChat </th>
+            <th> @Html.DisplayFor(model => model.VatChat) </th>
+        </tr>
+        <tr>
+            <th> TrangThai </th>
+            <th> @Html.DisplayFor(model => model.TrangThai) </th>
+        </tr>
+        <tr>
+            <th> Hinh </th>
+            <th> @Html.DisplayFor(model => model.Hinh) </th>
+        </tr>
+    </table>
+</div>
+
+<a href="~/PhongTro/Index" id="button-back"> Trở về </a>

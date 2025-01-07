@@ -1,0 +1,46 @@
+﻿@model Đồ_án_web_quản_lí_phòng_trọ.Models.TaiKhoan
+
+@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Views/Shared/Login.cshtml";
+}
+<link href="~/Content/CSS/DangNhap.css" rel="stylesheet" />
+<h2>Đăng nhập</h2>
+
+@using (Html.BeginForm("LoginAcount", "DangNhap", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="shape-login">
+        <table>
+            <tr>
+                <th colspan="2"><img src="~/images/login.png" class="img-logo"></th>
+            </tr>
+            <tr style="padding-top:10px">
+                <th>Tên Đăng Nhập</th>
+                <th>
+                    @Html.TextBoxFor(model => model.UserName, new { @class = "input" })
+                    @Html.ValidationMessageFor(model => model.UserName)
+                </th>
+            </tr>
+            <tr style="padding-top: 10px">
+                <th>Mật khẩu</th>
+                <th>
+                    @Html.PasswordFor(model => model.MatKhau, new { @class = "input" })
+                    @Html.ValidationMessageFor(model => model.MatKhau)
+                </th>
+            </tr>
+            <tr style="padding-top: 10px">
+                @if (!string.IsNullOrEmpty(ViewBag.ErrorInfo))
+                {
+                    <th colspan="2" class="alert" role="alert">
+                        @ViewBag.ErrorInfo
+                    </th>
+                }
+            </tr>
+            <tr style="padding-top:10px">
+                <th style="text-align: center; padding-left:50px;"><input type="submit" value="Đăng nhập" class="btn-login" /></th>
+                <th style="padding-left:20px"><a href="/DangNhap/DangKy" class="btn-register">Đăng ký tài khoản</a></th>
+            </tr>
+        </table>
+    </div>
+}

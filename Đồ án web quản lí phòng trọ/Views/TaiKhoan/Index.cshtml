@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Đồ_án_web_quản_lí_phòng_trọ.Models.TaiKhoan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaTaiKhoan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MatKhau)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Role)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaTaiKhoan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MatKhau)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Role)
+        </td>
+        <td>
+            <button>@Html.ActionLink("Edit", "Edit", new { id = item.MaTaiKhoan/* id=item.PrimaryKey */ }) |</button>
+            <button>@Html.ActionLink("Details", "Details", new { id = item.MaTaiKhoan/* id=item.PrimaryKey */ }) |</button>
+            <button>@Html.ActionLink("Delete", "Delete", new { id = item.MaTaiKhoan/* id=item.PrimaryKey */ })</button>
+        </td>
+    </tr>
+}
+
+</table>

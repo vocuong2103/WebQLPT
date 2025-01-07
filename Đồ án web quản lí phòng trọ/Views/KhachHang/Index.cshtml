@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Đồ_án_web_quản_lí_phòng_trọ.Models.KhachHang>
+
+@{
+    ViewBag.Title = "Quản lý khách hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/CSS/quanly.css" rel="stylesheet" />
+<h2 style="text-align:center;">Quản lí khách hàng</h2>
+<a href="~/KhachHang/Create"> <input type="button" value="Đăng ký khách hàng mới" id="button-create"/></a>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaKhachHang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenKhachHang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CCCD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaTaiKhoan)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaKhachHang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenKhachHang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CCCD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaTaiKhoan)
+        </td>
+        <td>
+            <a href="~/KhachHang/Edit/@item.MaKhachHang" id="button-edit"> Sửa </a>
+            <a href="~/KhachHang/Details/@item.MaKhachHang" id="button-details"> Chi tiết </a>
+            <a href="~/KhachHang/Delete/@item.MaKhachHang" id="button-delete"> Xóa </a>
+            
+        </td>
+    </tr>
+}
+
+</table>

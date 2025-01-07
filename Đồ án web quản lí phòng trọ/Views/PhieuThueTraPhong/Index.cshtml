@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Đồ_án_web_quản_lí_phòng_trọ.Models.PhieuThueTraPhong>
+
+@{
+    ViewBag.Title = "Quản lý phiếu thuê trả phòng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center;">Quản lí phiếu thuê trả phòng</h2>
+<link href="~/Content/CSS/quanly.css?v=1" rel="stylesheet" />
+
+<a href="~/PhieuThueTraPhong/Create" class="button-quanly-phieuttp" style="text-decoration:none"> Thêm mới</a>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaPhieuTTP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CCCD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayThue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenKhachHang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayTra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaQuanLy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaPhong)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaPhieuTTP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CCCD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayThue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenKhachHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayTra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaQuanLy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaPhong)
+            </td>
+            <td>
+                <a href="~/PhieuThueTraPhong/Edit/@item.MaPhieuTTP" id="button-edit" style="text-decoration:none"> Sửa</a>
+                <a href="~/PhieuThueTraPhong/Details/@item.MaPhieuTTP" id="button-details" style="text-decoration:none"> Chi tiết</a>
+                <a href="~/PhieuThueTraPhong/Delete/@item.MaPhieuTTP" id="button-delete" style="text-decoration:none"> Xóa</a>
+
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,91 @@
+﻿@model Đồ_án_web_quản_lí_phòng_trọ.Models.PhieuThuTien
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PhieuThuTien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TongTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TongTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienDien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienDien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienNuoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienNuoc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienMang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienMang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrangThai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KhachHang.TenKhachHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KhachHang.TenKhachHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhieuThueTraPhong.CCCD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhieuThueTraPhong.CCCD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuanLy.TenQuanLy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuanLy.TenQuanLy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaPhieuThuTien }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

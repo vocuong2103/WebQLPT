@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link href="~/Content/CSS/header.css?v=2" rel="stylesheet" />
+
+    <style>
+        #navbar-quanly {
+            margin-left: 20px;
+            margin-right: 20px;
+            border-radius: 10px;
+            background-color: #D9D9D9;
+            width: auto;
+            box-shadow: 2px 2px 4px #808080;
+            margin-top: 30px;
+        }
+
+        .header-left a {
+            margin-left: 1500px;
+            text-align: center;
+            margin-top: 10px;
+            color: white;
+            width: fit-content;
+            height: 30px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+            .header-left a:hover {
+                color: red;
+            }
+
+        .user-name {
+            margin-left: 1500px;
+            display: flex;
+            text-align: center;
+            color: white;
+            width: fit-content;
+            height: 30px;
+            text-decoration: none;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        .menu {
+            list-style:none;
+        }
+        .sub-menu {
+            display: none;
+            position: relative;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+            .sub-menu li {
+                display: block;
+            }
+
+                .sub-menu li a {
+                    color: #333;
+                }
+    </style>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:black">
+        <div class="container" style="width:100%">
+            <div class="navbar-header">
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <div id="div-navbar-quanly">
+
+                        <ul class="menu">
+                            <li id="navbar-quanly">
+                                <a class="sub-btn"> <img src="~/images/assignment_add.jpg" />Quản lý thống kê</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="~/PhieuThuTien/TongDoanhThu"> Xem doanh thu</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/ThongKe/FilterChuaThanhToan"> Chưa thanh toán</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Khách hàng thân thiết</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li id="navbar-quanly">
+                                <a class="sub-btn"> <img src="~/images/assignment_add.jpg" />Quản lý phòng trọ</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="~/PhieuThuTien/TongDoanhThu"> Xem doanh thu</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/ThongKe/FilterChuaThanhToan"> Chưa thanh toán</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Khách hàng thân thiết</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li id="navbar-quanly">
+                                <a class="sub-btn"> <img src="~/images/assignment_add.jpg" />Quản lý khách hàng</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="~/KhachHang/Index">Xem thông tin khách hàng</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/TaiKhoan/Index">Xem tài khoản khách hàng</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Khách hàng thân thiết</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li id="navbar-quanly">
+                                <a href="@Url.Action("LogOutUser","DangNhap")"><img src="~/images/logout.jpg" />Đăng xuất</a>
+                            </li>
+                            
+                        </ul>
+                     
+
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+                <span style="font-size:30px;cursor:pointer;margin-left:50px;color:white;" onclick="openNav()">&#9776; </span>
+                
+
+            </div>
+
+
+            <div class="navbar-collapse collapse">
+
+                <div>
+                    @if (Session["UserName"] == null)
+                    {
+                        <span class="header-left"><a href="~/DangNhap/DangNhap"> Đăng nhập </a></span>
+                    }
+                    else
+                    {
+                        <div>
+                            
+                            <span class="user-name">
+                                <img src="~/images/account_circle.png"/>
+                                @Session["UserName"]
+                            </span>
+                            
+                        </div>
+
+                    }
+                </div>
+
+
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "300px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //jquery for toggle sub menus
+        $('.sub-btn').click(function () {
+            $(this).next('.sub-menu').slideToggle();
+        });
+    });
+</script>
+
+
+
+
